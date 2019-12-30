@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Author extends Model
+class Role extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,11 +12,11 @@ class Author extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'github', 'twitter', 'location', 'latest_article_published'
+        'name'
     ];
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo('app/User');
+        return $this->hasMany('app\User');
     }
 }

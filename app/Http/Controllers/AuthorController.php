@@ -21,7 +21,6 @@ class AuthorController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email|unique:authors',
             'location' => 'required'
         ]);
 
