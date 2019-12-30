@@ -20,7 +20,7 @@ class UserController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email|users:unique',
+            'email' => 'required|email|unique:users',
             'password' => 'required'
         ]);
 

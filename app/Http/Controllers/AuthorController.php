@@ -21,7 +21,8 @@ class AuthorController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'location' => 'required'
+            'location' => 'required',
+            'user_id' => 'required'
         ]);
 
         $author = Author::create($request->all());
