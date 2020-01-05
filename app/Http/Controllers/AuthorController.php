@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
+    public function _construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return Author::all();

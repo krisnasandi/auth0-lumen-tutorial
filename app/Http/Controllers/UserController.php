@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         return User::all();
@@ -21,12 +26,23 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'email' => 'required|email|unique:users',
-            'password' => 'required'
+            'password' => 'required',
+            'role_id' => 'required'
         ]);
 
-        $user = User::create($request->all());
+        try {
+            $user = new User;
+            $user->email = $request->input('email');
+            $plainPassword = $request->input('password');
+            $user->password = app('hash')->make($plainPassword);
+            $user->role_id = $request->input('role_id');
 
-        return response()->json($user, 201);
+            $user->save();
+
+            return response()->json(['user' => $user, 'message' => 'CREATED'], 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'User Registration Failed!'], 409);
+        }
     }
 
     public function update(Request $request, $id)

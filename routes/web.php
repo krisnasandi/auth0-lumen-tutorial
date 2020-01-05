@@ -16,21 +16,24 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    //authors
+    //authentication
+    $router->post('login', 'AuthController@login');
+
+    // authors
     $router->get('authors',  ['uses' => 'AuthorController@index']);
     $router->get('authors/{id}', ['uses' => 'AuthorController@show']);
     $router->post('authors', ['uses' => 'AuthorController@create']);
     $router->put('authors/{id}', ['uses' => 'AuthorController@update']);
     $router->delete('authors/{id}', ['uses' => 'AuthorController@delete']);
 
-    //users
+    // users
     $router->get('users',  ['uses' => 'UserController@index']);
-    $router->get('users/{id}', ['uses' => 'UserController@show']);
+    $router->get('users/{id}', ['uses' => 'UserController@show']); 
     $router->post('users', ['uses' => 'UserController@create']);
     $router->put('users/{id}', ['uses' => 'UserController@update']);
     $router->delete('users/{id}', ['uses' => 'UserController@delete']);
 
-    //users
+    // roles
     $router->get('roles',  ['uses' => 'RoleController@index']);
     $router->get('roles/{id}', ['uses' => 'RoleController@show']);
     $router->post('roles', ['uses' => 'RoleController@create']);
