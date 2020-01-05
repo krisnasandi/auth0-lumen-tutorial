@@ -26,4 +26,4 @@ The Lumen framework is open-sourced software licensed under the [MIT license](ht
 ## Tutorial Link
 The tutorial I am using on this project can be found at [Auth0](https://auth0.com/blog/developing-restful-apis-with-lumen/#Lumen-Features-and-Architecture).
 
-**Note**: This project is not completely following the tutorial. I am not using the Auth0 authentication feature, instead implementing standard JWT I found [here](https://dev.to/ndiecodes/build-a-jwt-authenticated-api-with-lumen-2afm).
+**Note**: This project is not completely following the tutorial. I am not using the Auth0 for the authentication feature, instead implementing standard JWT I found [here](https://dev.to/ndiecodes/build-a-jwt-authenticated-api-with-lumen-2afm).
